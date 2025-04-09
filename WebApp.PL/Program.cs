@@ -58,19 +58,18 @@ namespace WebApp.PL
             //});
 
 
-            //builder.Services.AddAuthentication(options =>
-            //{
-            //    options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
-            //    options.DefaultScheme = IdentityConstants.ApplicationScheme;
-            //    options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
-            //    options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+                options.DefaultScheme = IdentityConstants.ApplicationScheme;
+                options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
 
-            //})
-            //  .AddGoogle(options =>
-            //  {
-            //      options.ClientId = builder.Configuration["Auth:Google:ClientId"];
-            //      options.ClientSecret = builder.Configuration["Auth:Google:ClientSecret"];
-            //  });
+            })
+              .AddGoogle(options =>
+              {
+                  options.ClientId = builder.Configuration["Auth:Google:ClientId"];
+                  options.ClientSecret = builder.Configuration["Auth:Google:ClientSecret"];
+              });
 
 
             #endregion
@@ -98,16 +97,16 @@ namespace WebApp.PL
 
             #region GoogleAuth Services
            
-            builder.Services.AddAuthentication(options =>
-            {
-                options.DefaultScheme = IdentityConstants.ApplicationScheme;
-                options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
-            })
-            .AddGoogle(options =>
-            {
-                options.ClientId = builder.Configuration["Auth:Google:ClientId"];
-                options.ClientSecret = builder.Configuration["Auth:Google:ClientSecret"];
-            });
+            //builder.Services.AddAuthentication(options =>
+            //{
+            //    options.DefaultScheme = IdentityConstants.ApplicationScheme;
+            //    options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+            //})
+            //.AddGoogle(options =>
+            //{
+            //    options.ClientId = builder.Configuration["Auth:Google:ClientId"];
+            //    options.ClientSecret = builder.Configuration["Auth:Google:ClientSecret"];
+            //});
 
             #endregion
 
