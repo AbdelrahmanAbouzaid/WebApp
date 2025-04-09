@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Check Your Inbox";
+    Layout = "_AuthLayout";
+}
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="col-md-6 col-lg-5 bg-white p-5 rounded shadow">
+        <h2 class="text-center text-primary mb-4">📧 Check Your Inbox</h2>
+
+        <div class="text-center">
+            <p class="mb-4">
+                We’ve sent a password reset link to your email address. Please check your inbox (and your spam folder just in case).
+            </p>
+
+            <p class="mb-4">
+                If you didn’t receive the email, you can <a asp-action="ForgetPassword" class="text-primary text-decoration-none">request another one</a>.
+            </p>
+
+        </div>
+    </div>
+</div>

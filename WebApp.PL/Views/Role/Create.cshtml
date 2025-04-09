@@ -1,0 +1,28 @@
+﻿@model RoleToReturnDto
+@{
+    ViewData["Title"] = "Create Role";
+}
+
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="col-md-6 col-lg-5 bg-white p-5 rounded shadow">
+        <h2 class="text-center text-primary mb-4">➕ Create New Role</h2>
+
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="form-label">Role Name</label>
+                <input asp-for="Name" class="form-control" placeholder="Enter role name" />
+                <span asp-validation-for="Name" class="text-danger small"></span>
+            </div>
+
+            <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-success btn-lg">Create Role</button>
+            </div>
+
+            <p class="text-center mt-4">
+                <a asp-action="Index" class="text-primary text-decoration-none">← Back to Role List</a>
+            </p>
+        </form>
+    </div>
+</div>

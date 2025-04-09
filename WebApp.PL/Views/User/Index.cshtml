@@ -1,0 +1,70 @@
+﻿@model IEnumerable<UserToReturnDto>
+@{
+    ViewData["Title"] = "Users";
+}
+
+
+<form class="mb-4">
+    <h2 class="text-primary">Users</h2>
+    <div class="input-group" style="max-width: 500px;">
+        <input type="text" placeholder="Search for users..." id="searchInput" name="searchInput" class="form-control" />
+        <button type="submit" class="btn btn-outline-primary">
+            <i class="bi bi-search"></i> Search
+        </button>
+    </div>
+</form>
+@if (Model.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-hover table-striped align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Id)</th>
+                    <th>@Html.DisplayNameFor(model => model.UserName)</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+                    <th>@Html.DisplayNameFor(model => model.LastName)</th>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <th>@Html.DisplayNameFor(model => model.Roles)</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                        <td>@Html.DisplayFor(modelItem => item.UserName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>
+                            @foreach (var role in item.Roles)
+                            {
+                                <span class="badge bg-info">@role</span>
+                            }
+                        </td>
+                        <td class="text-center">
+                            <div class="d-flex justify-content-center gap-2">
+                                <a asp-action="Details" asp-route-Id="@item.Id" class="btn btn-outline-secondary btn-sm" title="View Details">
+                                    <i class="bi bi-eye"></i> Details
+                                </a>
+                                <a asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-outline-success btn-sm" title="Edit User">
+                                    <i class="bi bi-pencil-square"></i> Update
+                                </a>
+                                <a asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-outline-danger btn-sm" title="Delete User">
+                                    <i class="bi bi-trash"></i> Delete
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning mt-4 text-center" role="alert">
+        <strong>No users found!</strong> Please add some users to your system.
+    </div>
+}

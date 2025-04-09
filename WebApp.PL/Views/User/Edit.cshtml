@@ -1,0 +1,46 @@
+﻿@model UserToReturnDto
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<div class="container d-flex justify-content-center align-items-center my-5">
+    <div class="col-md-8 col-lg-6 bg-white p-5 rounded shadow">
+        <h2 class="text-center text-primary mb-4">👤 Edit User</h2>
+
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="UserName" class="form-label">User Name</label>
+                <input asp-for="UserName" class="form-control" placeholder="Enter user name" />
+                <span asp-validation-for="UserName" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="FirstName" class="form-label">First Name</label>
+                <input asp-for="FirstName" class="form-control" placeholder="Enter first name" />
+                <span asp-validation-for="FirstName" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="LastName" class="form-label">Last Name</label>
+                <input asp-for="LastName" class="form-control" placeholder="Enter last name" />
+                <span asp-validation-for="LastName" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" placeholder="Enter email" />
+                <span asp-validation-for="Email" class="text-danger small"></span>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-lg">Save Changes</button>
+            </div>
+
+            <p class="text-center mt-4">
+                <a asp-action="Index" class="text-primary text-decoration-none">← Back to User List</a>
+            </p>
+        </form>
+    </div>
+</div>

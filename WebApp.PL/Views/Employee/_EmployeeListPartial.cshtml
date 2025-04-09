@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Employee>
+
+@if (Model.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-hover table-striped align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th></th>
+                    <th>@Html.DisplayNameFor(model => model.Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.Age)</th>
+                    <th>@Html.DisplayNameFor(model => model.Address)</th>
+                    <th>@Html.DisplayNameFor(model => model.Phone)</th>
+                    <th>@Html.DisplayNameFor(model => model.Salary)</th>
+                    <th>@Html.DisplayNameFor(model => model.HiringDate)</th>
+                    <th>@Html.DisplayNameFor(model => model.Department)</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="~/files/images/@(string.IsNullOrEmpty(item.ImageName) ? "default.jpg" : item.ImageName)"
+                                 width="50" height="50" class="img-thumbnail rounded-circle" alt="Employee Image" />
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Age)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Phone)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Salary)</td>
+                        <td>@Html.DisplayFor(modelItem => item.HiringDate)</td>
+                        <td>
+                            @(item.Department != null ? item.Department.Name : "No Department")
+                        </td>
+                        <td class="text-center">
+                            <div class="d-flex flex-wrap justify-content-center">
+                                <a asp-action="Details" asp-route-Id="@item.Id" class="btn btn-outline-secondary btn-sm mx-1" title="Details">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <a asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-outline-success btn-sm mx-1" title="Edit">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-outline-danger btn-sm mx-1" title="Delete">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning mt-4" role="alert">
+        <strong>No employees found.</strong> Try creating one!
+    </div>
+}

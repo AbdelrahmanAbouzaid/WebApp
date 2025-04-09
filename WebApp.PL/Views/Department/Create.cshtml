@@ -1,0 +1,25 @@
+﻿@model DepartmentDto
+
+@{
+    ViewData["Title"] = "Create Department";
+}
+
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="col-md-6 col-lg-4 bg-white p-4 rounded shadow">
+        <form asp-action="Create">
+           
+            <!-- Partial View -->
+            @await Html.PartialAsync("DepartmentPartials/_CreateDepartmentPartial", Model)
+
+            <div class="d-flex justify-content-between">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

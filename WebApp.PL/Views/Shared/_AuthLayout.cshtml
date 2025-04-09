@@ -1,0 +1,29 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+	<title>@ViewData["Title"]</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- Custom Theme files -->
+	<link href="~/css/AuthStyle.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- //Custom Theme files -->
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/WebApp.PL.styles.css" asp-append-version="true" />
+</head>
+<body>
+	<!-- main -->
+	<div>
+
+
+		@RenderBody()
+
+	<!-- //main -->
+	</div>
+
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

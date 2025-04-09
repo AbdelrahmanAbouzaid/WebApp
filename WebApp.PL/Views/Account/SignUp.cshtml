@@ -1,0 +1,79 @@
+﻿@model WebApp.PL.Dtos.SignUpDto
+
+@{
+    ViewData["Title"] = "SignUp";
+}
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100 ">
+    <div class="col-md-6 col-lg-5 bg-white p-5 rounded shadow">
+        <h2 class="text-center mb-4 text-primary">🌟 Create Your Account</h2>
+
+        <form asp-action="SignUp">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="UserName" class="form-label">Username</label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="FirstName" class="form-label">First Name</label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="LastName" class="form-label">Last Name</label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" placeholder="name@example.com" />
+                <span asp-validation-for="Email" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Address" class="form-label">Address</label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Password" class="form-label">Password</label>
+                <input asp-for="Password" class="form-control" type="password" />
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
+                <input asp-for="ConfirmPassword" class="form-control" type="password" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+            </div>
+
+            <div class="form-check mb-3">
+                <input asp-for="IsAgree" class="form-check-input" required/>
+                <label asp-for="IsAgree" class="form-check-label">
+                    I agree to the <a asp-action="Privacy" asp-controller="Home" class="text-decoration-none text-primary">Terms & Conditions</a>
+                </label>
+                <span asp-validation-for="IsAgree" class="text-danger small d-block"></span>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+            </div>
+
+            <p class="text-center mt-3">
+                Already have an account? <a asp-action="SignIn" class="text-decoration-none text-primary">Log in</a>
+            </p>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
